@@ -1,0 +1,115 @@
+%% Paquetes y configuración %
+
+% Beamer
+\documentclass{beamer}
+
+% Idioma
+\usepackage[spanish]{babel} % Traducciones
+\usepackage[utf8]{inputenc} % Uso de caracteres UTF-8
+
+% Matemáticas
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Colores
+\usepackage{color}
+\definecolor{backg}{HTML}{F2F2F2}  % Strings
+\definecolor{comments}{HTML}{BDBDBD} % Comentarios
+\definecolor{keywords}{HTML}{8A0808} % Palabras clave
+\definecolor{strings}{HTML}{FA5858}  % Strings
+\definecolor{links}{HTML}{DF0101}    % Enlaces
+\definecolor{bars}{HTML}{B40404}     % Barras (gráfico)
+
+% Código
+\usepackage{listings}
+\lstset{
+frame=shadowbox,
+language=[LaTeX]TeX,
+basicstyle=\footnotesize,
+morekeywords={frametitle,framesubtitle, href},
+breaklines=true,
+backgroundcolor=\color{backg},
+keywordstyle=\color{keywords},
+commentstyle=\color{comments},
+stringstyle=\color{strings},
+tabsize=2,
+% Incluir símbolos no ASCII
+extendedchars=true,
+literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1  {ú}{{\'u}}1 {¡}{{!`}}1 {¿}{{?`}}1}
+}
+
+% Gráficos
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8} % Opciones para gráficos
+
+
+%% Comandos %%
+\newcommand{\iffd}{\overset{\Delta}{\iff}} % Si y sólo si por definición
+\newcommand{\N}{\mathbb{N}}                % Números naturales
+\newcommand{\R}{\mathbb{R}}              % Números reales
+\newcommand{\C}{\mathbb{C}}              % Números complejos
+\newcommand{\Power}{\mathcal{P}}           % Conjunto potencia
+\newcommand{\st}{\mathrel{} : \mathrel{}}  % Tal que (dos puntos)
+
+
+%% Temas %%
+% Tema y tema de color
+\usetheme{Dresden}
+\usecolortheme{beaver}
+
+
+% Enlaces (tex.stackexchange.com/questions/13423)
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+
+%% Título y otros %%
+\title{Cómo usar \texttt{beamer}}  % Título
+\subtitle{Una guía escrita en \texttt{beamer}}   % Subtítulo
+\author[Pablo Baeyens]{Pablo Baeyens Fernández \\ \href{mailto:pbaeyens31+github@gmail.com}{pbaeyens31+github@gmail.com}} %Autor y e-mail
+\date{17 de Ventoso de CCXXIII} % Fecha
+
+
+%% Presentación %%
+\begin{document}
+
+  % Página de título
+  \frame{\titlepage}
+
+  \frame{
+    \frametitle{Índice}
+    \tableofcontents[currentsection]
+  }
+
+  \section{Introducción}
+
+\begin{frame}[fragile]
+  \lstinputlisting{contribuye.tex}
+\end{frame}
+
+  \input{contribuye.tex}
+
+  % Secciones
+  \section{Gráficos y otras maravillas de \texttt{tikz}}
+
+  \frame{
+  \begin{columns}[c]
+    \column{.6\textwidth}
+      \begin{tikzpicture}
+        \begin{axis}[
+        ybar stacked,
+        bar width=.7cm,
+        ytick=\empty,
+        symbolic x coords={\texttt{beamer},LibreOffice,PowerPoint},
+        xtick=data,
+        ]
+          \addplot[fill=bars] coordinates
+          {(\texttt{beamer},100) (LibreOffice,9) (PowerPoint,4)};
+        \end{axis}
+      \end{tikzpicture}
+
+    \column{.4\textwidth}
+     Podemos hacer gráficos con \href{https://ctan.org/pkg/pgfplots}{\texttt{pgfplots}} (aunque de este paquete se puede hablar tanto como de \texttt{beamer}).
+    \end{columns}
+  }
+\end{document}
