@@ -14,7 +14,7 @@
 
 % Colores
 \usepackage{color}
-\definecolor{backg}{HTML}{F2F2F2}  % Strings
+\definecolor{backg}{HTML}{F2F2F2}    % Strings
 \definecolor{comments}{HTML}{BDBDBD} % Comentarios
 \definecolor{keywords}{HTML}{8A0808} % Palabras clave
 \definecolor{strings}{HTML}{FA5858}  % Strings
@@ -24,7 +24,7 @@
 % Código
 \usepackage{listings}
 \lstset{
-frame=shadowbox,
+%frame=shadowbox,
 language=[LaTeX]TeX,
 basicstyle=\footnotesize,
 morekeywords={frametitle,framesubtitle, href},
@@ -34,7 +34,7 @@ keywordstyle=\color{keywords},
 commentstyle=\color{comments},
 stringstyle=\color{strings},
 tabsize=2,
-% Incluir símbolos no ASCII
+% Incluir símbolos no ASCII (tex.stackexchange.com/questions/24528)
 extendedchars=true,
 literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1  {ú}{{\'u}}1 {¡}{{!`}}1 {¿}{{?`}}1}
 }
@@ -67,49 +67,66 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1  {ú}{{\'u}}1 {¡}{
 \title{Cómo usar \texttt{beamer}}  % Título
 \subtitle{Una guía escrita en \texttt{beamer}}   % Subtítulo
 \author[Pablo Baeyens]{Pablo Baeyens Fernández \\ \href{mailto:pbaeyens31+github@gmail.com}{pbaeyens31+github@gmail.com}} %Autor y e-mail
-\date{17 de Ventoso de CCXXIII} % Fecha
+\date{DGIIM} % Fecha
 
 
 %% Presentación %%
 \begin{document}
 
-  % Página de título
-  \frame{\titlepage}
+% Página de título
+\frame{\titlepage}
 
-  \frame{
-    \frametitle{Índice}
-    \tableofcontents[currentsection]
-  }
+\frame{
+  \frametitle{Índice}
+  \tableofcontents[currentsection]
+}
 
-  \section{Introducción}
+\section{Introducción}
 
-\begin{frame}[fragile]
-  \lstinputlisting{contribuye.tex}
-\end{frame}
+\input{contribuye.tex}
 
-  \input{contribuye.tex}
+\frame{
+  \frametitle{Primeros pasos}
+  Para empezar a usar \texttt{beamer}, indicamos la clase del documento:
 
-  % Secciones
-  \section{Gráficos y otras maravillas de \texttt{tikz}}
+  \lstinputlisting[firstline=4, lastline=4]{beamer.tex}
 
-  \frame{
-  \begin{columns}[c]
-    \column{.6\textwidth}
-      \begin{tikzpicture}
-        \begin{axis}[
-        ybar stacked,
-        bar width=.7cm,
-        ytick=\empty,
-        symbolic x coords={\texttt{beamer},LibreOffice,PowerPoint},
-        xtick=data,
-        ]
-          \addplot[fill=bars] coordinates
-          {(\texttt{beamer},100) (LibreOffice,9) (PowerPoint,4)};
-        \end{axis}
-      \end{tikzpicture}
+  Podemos utilizar cualquier\footnote{\texttt{pandoc} tiene una sintaxis \href{http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc}{diferente}.} compilador de $\LaTeX$ (yo he utilizado \href{http://www.ctan.org/pkg/texliveonfly}{\texttt{texliveonfly}}).
+}
 
-    \column{.4\textwidth}
-     Podemos hacer gráficos con \href{https://ctan.org/pkg/pgfplots}{\texttt{pgfplots}} (aunque de este paquete se puede hablar tanto como de \texttt{beamer}).
-    \end{columns}
-  }
+\frame{
+  En el entorno \texttt{document} creamos las diapositivas utilizando el
+  entorno \texttt{frame}:
+
+  \lstinputlisting{ejemplo1.tex}
+
+  También podemos utilizar \texttt{frame} como una función.
+}
+
+\input{ejemplo1.tex}
+
+\frame{}
+% Secciones
+\section{Gráficos y otras maravillas de \texttt{tikz}}
+
+\frame{
+\begin{columns}[c]
+  \column{.6\textwidth}
+    \begin{tikzpicture}
+      \begin{axis}[
+      ybar stacked,
+      bar width=.7cm,
+      ytick=\empty,
+      symbolic x coords={\texttt{beamer},LibreOffice,PowerPoint},
+      xtick=data,
+      ]
+        \addplot[fill=bars] coordinates
+        {(\texttt{beamer},100) (LibreOffice,9) (PowerPoint,4)};
+      \end{axis}
+    \end{tikzpicture}
+
+  \column{.4\textwidth}
+   Podemos hacer gráficos con \href{https://ctan.org/pkg/pgfplots}{\texttt{pgfplots}} (aunque de este paquete se puede hablar tanto como de \texttt{beamer}).
+  \end{columns}
+}
 \end{document}
