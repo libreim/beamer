@@ -2,7 +2,6 @@
 % Email: pbaeyens31+github@gmail.com
 % Licencia: CC BY-SA 3.0
 
-
 %% Paquetes y configuración %
 
 % Beamer
@@ -18,8 +17,7 @@
 \usepackage{amssymb}
 
 % Colores
-\usepackage{color}
-\definecolor{backg}{HTML}{F2F2F2}    % Strings
+\definecolor{backg}{HTML}{F2F2F2}    % Fondo
 \definecolor{comments}{HTML}{BDBDBD} % Comentarios
 \definecolor{keywords}{HTML}{8A0808} % Palabras clave
 \definecolor{strings}{HTML}{FA5858}  % Strings
@@ -45,23 +43,20 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
          {ú}{{\'u}}1 {ñ}{{\~n}}1 {¡}{{\textexclamdown}}1
          {¿}{{?`}}1}
 }
-% Comando para incluir ejemplos como listings
-\newcommand{\ejemplo}[1]{\lstinputlisting{./Ejemplos/#1}}
-\newcommand{\muestra}[1]{\input{./Ejemplos/#1}}
+
 
 % Gráficos
 \usepackage{pgfplots}
 \pgfplotsset{width=7cm,compat=1.8} % Opciones para gráficos
 
+% Emoticonos
+\usepackage{wasysym}
 
 %% Comandos %%
-\newcommand{\iffd}{\overset{\Delta}{\iff}} % Si y sólo si por definición
-\newcommand{\N}{\mathbb{N}}                % Números naturales
-\newcommand{\R}{\mathbb{R}}              % Números reales
-\newcommand{\C}{\mathbb{C}}              % Números complejos
-\newcommand{\Power}{\mathcal{P}}           % Conjunto potencia
-\newcommand{\st}{\mathrel{} : \mathrel{}}  % Tal que (dos puntos)
-
+% Comandos para incluir ejemplos como listings y mostrarlos
+\newcommand{\ejemplo}[1]{\lstinputlisting{./Ejemplos/#1}}
+\newcommand{\muestra}[1]{\input{./Ejemplos/#1}}
+\newcommand{\espacio}{\\~\\}  % tex.stackexchange.com/questions/11622
 
 %% Temas %%
 % Tema y tema de color
@@ -96,15 +91,48 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 \input{contribuye.tex}
 
 \frame{
-  \frametitle{Primeros pasos}
-  Para empezar a usar \texttt{beamer}, indicamos la clase del documento:
+  \frametitle{¿Qué es \texttt{beamer}?}
+  \texttt{beamer} es una clase de documento de $\LaTeX$ que genera diapositivas
+  o transparencias con animaciones, gráficos, tablas...
 
-  \lstinputlisting[firstline=4, lastline=4]{beamer.tex}
+  Puede compilarse con casi \footnote{\texttt{pandoc} no sirve \frownie{}} cualquier compilador
+  de $\LaTeX$ y personalizarse al detalle.
 
-  Podemos utilizar cualquier\footnote{\texttt{pandoc} tiene una sintaxis \href{http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc}{diferente}.} compilador de $\LaTeX$ (yo he utilizado \href{http://www.ctan.org/pkg/texliveonfly}{\texttt{texliveonfly}}).
 }
 
 \frame{
+  \frametitle{Instalación}
+
+  Para usar \texttt{beamer} se necesitan 3 paquetes:
+
+  \begin{itemize}
+    \item \texttt{beamer}
+    \item \texttt{pgf}
+    \item \texttt{xcolor}
+  \end{itemize}
+
+  En distros derivadas de Debian podemos instalar el paquete \texttt{latex-beamer} que
+  gestionará las dependencias.
+
+  También podemos utilizar \href{http://www.ctan.org/pkg/texliveonfly}{\texttt{texliveonfly}}.
+}
+
+\frame{
+  \frametitle{Primeros pasos}
+
+  Para empezar a usar \texttt{beamer}, indicamos la clase del documento:
+    \espacio
+    { \Large \centering \texttt
+  {\color{black} \textbackslash}{\color{keywords}documentclass}{\color{black}\{beamer\}}
+    }
+    \espacio
+
+  \texttt{beamer} utiliza una letra sin serifa por defecto para las fórmulas matemáticas.
+  Podemos utilizar la fuente de la clase \texttt{article} pasando el argumento \texttt{mathserif}.
+}
+
+\frame[allowframebreaks]{
+  \frametitle{Diapositivas}
   En el entorno \texttt{document} creamos las diapositivas utilizando el
   entorno \texttt{frame}:
 
@@ -114,6 +142,35 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 }
 
 \muestra{ejemplo1.tex}
+
+
+\frame{
+  \frametitle{Tipos de diapositivas}
+  El entorno \texttt{frame} permite varias opciones:
+}
+
+\muestra{shrink.tex}
+
+\frame{
+\frametitle{Tamaño}
+\begin{columns}
+  \column{.5\textwidth}
+    Podemos cambiar el tamaño de letra utilizando los comandos habituales en $\LaTeX$.
+
+  \column{.5\textwidth}
+    \begin{itemize}
+      \item \texttt{\tiny \textbackslash tiny}
+      \item \texttt{\scriptsize \textbackslash scriptsize}
+      \item \texttt{\footnotesize \textbackslash footnotesize}
+      \item \texttt{\small \textbackslash small}
+      \item \texttt{\normalsize \textbackslash normalsize}
+      \item \texttt{\large \textbackslash large}
+      \item \texttt{\Large \textbackslash Large}
+      \item \texttt{\LARGE \textbackslash LARGE}
+      \item \texttt{\huge \textbackslash huge}
+    \end{itemize}
+\end{columns}
+}
 
 % Secciones
 \section{Gráficos y otras maravillas de \texttt{tikz}}
