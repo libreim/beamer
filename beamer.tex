@@ -1,3 +1,8 @@
+% Autor: Pablo Baeyens (@pbaeyens)
+% Email: pbaeyens31+github@gmail.com
+% Licencia: CC BY-SA 3.0
+
+
 %% Paquetes y configuración %
 
 % Beamer
@@ -36,8 +41,13 @@ stringstyle=\color{strings},
 tabsize=2,
 % Incluir símbolos no ASCII (tex.stackexchange.com/questions/24528)
 extendedchars=true,
-literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1  {ú}{{\'u}}1 {¡}{{!`}}1 {¿}{{?`}}1}
+literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
+         {ú}{{\'u}}1 {ñ}{{\~n}}1 {¡}{{\textexclamdown}}1
+         {¿}{{?`}}1}
 }
+% Comando para incluir ejemplos como listings
+\newcommand{\ejemplo}[1]{\lstinputlisting{./Ejemplos/#1}}
+\newcommand{\muestra}[1]{\input{./Ejemplos/#1}}
 
 % Gráficos
 \usepackage{pgfplots}
@@ -98,14 +108,13 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1  {ú}{{\'u}}1 {¡}{
   En el entorno \texttt{document} creamos las diapositivas utilizando el
   entorno \texttt{frame}:
 
-  \lstinputlisting{ejemplo1.tex}
+  \ejemplo{ejemplo1.tex}
 
   También podemos utilizar \texttt{frame} como una función.
 }
 
-\input{ejemplo1.tex}
+\muestra{ejemplo1.tex}
 
-\frame{}
 % Secciones
 \section{Gráficos y otras maravillas de \texttt{tikz}}
 
