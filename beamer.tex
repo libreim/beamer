@@ -18,16 +18,16 @@
 
 % Colores
 \definecolor{backg}{HTML}{F2F2F2}    % Fondo
+\definecolor{title}{HTML}{bdc3d1}    % Títulos
 \definecolor{comments}{HTML}{BDBDBD} % Comentarios
-\definecolor{keywords}{HTML}{8A0808} % Palabras clave
+\definecolor{keywords}{HTML}{08388c} % Palabras clave
 \definecolor{strings}{HTML}{FA5858}  % Strings
-\definecolor{links}{HTML}{DF0101}    % Enlaces
+\definecolor{links}{HTML}{3333B2}    % Enlaces
 \definecolor{bars}{HTML}{B40404}     % Barras (gráfico)
 
 % Código
 \usepackage{listings}
 \lstset{
-%frame=shadowbox,
 language=[LaTeX]TeX,
 basicstyle=\footnotesize,
 morekeywords={frametitle,framesubtitle, href},
@@ -61,8 +61,13 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 %% Temas %%
 % Tema y tema de color
 \usetheme{Dresden}
-\usecolortheme{beaver}
-
+\usecolortheme{dolphin}
+\useinnertheme{circles}
+\setbeamercolor{block title}{bg=title,fg=links}
+\setbeamercolor{block body}{bg=backg,fg=black}
+\setbeamercolor{block title alerted}{fg=red!70!black,bg=title!92!red}
+\setbeamercolor{block body alerted}{fg=black,bg=backg}
+% parent of all alerts default is red
 
 % Enlaces (tex.stackexchange.com/questions/13423)
 \hypersetup{colorlinks,linkcolor=,urlcolor=links}
@@ -83,7 +88,7 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 
 \frame{
   \frametitle{Índice}
-  \tableofcontents[currentsection]
+  \tableofcontents
 }
 
 \section{Introducción}
@@ -95,8 +100,14 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
   \texttt{beamer} es una clase de documento de $\LaTeX$ que genera diapositivas
   o transparencias con animaciones, gráficos, tablas...
 
-  Puede compilarse con casi \footnote{\texttt{pandoc} no sirve \frownie{}} cualquier compilador
-  de $\LaTeX$ y personalizarse al detalle.
+  Puede compilarse con casi cualquier compilador de $\LaTeX$ y personalizarse al detalle.
+
+  \espacio
+
+    \begin{block}{\texttt{pandoc}}
+      \texttt{pandoc} no sirve \frownie{}. Podemos generar presentaciones con \texttt{beamer}
+      pero tiene \href{http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc}{una sintaxis propia}.
+    \end{block}
 
 }
 
@@ -110,46 +121,55 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
     \item \texttt{pgf}
     \item \texttt{xcolor}
   \end{itemize}
-
-  En distros derivadas de Debian podemos instalar el paquete \texttt{latex-beamer} que
-  gestionará las dependencias.
-
-  También podemos utilizar \href{http://www.ctan.org/pkg/texliveonfly}{\texttt{texliveonfly}}.
+    \pause
+    \begin{block}{Debian/Ubuntu y derivados}
+    En Debian y derivados podemos instalar \texttt{latex-beamer}. También podemos utilizar \href{http://www.ctan.org/pkg/texliveonfly}{\texttt{texliveonfly}}.
+  \end{block}
 }
 
 \frame{
   \frametitle{Primeros pasos}
 
   Para empezar a usar \texttt{beamer}, indicamos la clase del documento:
-    \espacio
-    { \Large \centering \texttt
-  {\color{black} \textbackslash}{\color{keywords}documentclass}{\color{black}\{beamer\}}
-    }
-    \espacio
 
-  \texttt{beamer} utiliza una letra sin serifa por defecto para las fórmulas matemáticas.
-  Podemos utilizar la fuente de la clase \texttt{article} pasando el argumento \texttt{mathserif}.
+    \begin{center}
+      \Large \texttt
+      {\color{black}\textbackslash}{\color{keywords}documentclass}{\color{black}\{beamer\}}
+    \end{center}
+
+    \pause
+    \begin{alertblock}{Cambiando el tipo de letra}
+      \texttt{beamer} utiliza una letra sin serifa para las fórmulas matemáticas por defecto.
+      Podemos utilizar la fuente de \texttt{article} pasando el argumento \texttt{mathserif}.
+    \end{alertblock}
 }
 
-\frame[allowframebreaks]{
+\frame{
   \frametitle{Diapositivas}
-  En el entorno \texttt{document} creamos las diapositivas utilizando el
-  entorno \texttt{frame}:
+  Creamos las diapositivas utilizando el entorno o la función \texttt{frame}:
 
   \ejemplo{ejemplo1.tex}
 
-  También podemos utilizar \texttt{frame} como una función.
+  \pause
+  \begin{block}{Tipos de diapositivas}
+    \begin{itemize}[<+->]
+      \item \texttt{shrink}
+      \item \texttt{plain}
+      \item \texttt{fragile}
+      \item \texttt{allowframebreaks}
+    \end{itemize}
+  \end{block}
 }
 
 \muestra{ejemplo1.tex}
-
-
-\frame{
-  \frametitle{Tipos de diapositivas}
-  El entorno \texttt{frame} permite varias opciones:
-}
-
 \muestra{shrink.tex}
+
+\section{Aspecto}
+
+%\subsection{Temas}
+%\subsection{Bloques}
+%\subsection{Columnas}
+%\subsection{\textit{Overlay}}
 
 \frame{
 \frametitle{Tamaño}
@@ -172,7 +192,7 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 \end{columns}
 }
 
-% Secciones
+
 \section{Gráficos y otras maravillas de \texttt{tikz}}
 
 \frame{
