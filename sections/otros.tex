@@ -1,0 +1,24 @@
+\section{Otros objetos}
+
+\frame{
+\begin{columns}[c]
+  \column{.6\textwidth}
+    \begin{tikzpicture}
+      \begin{axis}[
+      ybar stacked,
+      bar width=.7cm,
+      ytick=\empty,
+      symbolic x coords={\beamer,LibreOffice,PowerPoint},
+      xtick=data,
+      ]
+        \addplot[fill=bars] coordinates
+        {(\beamer,100) (LibreOffice,9) (PowerPoint,4)};
+      \end{axis}
+    \end{tikzpicture}
+
+  \column{.4\textwidth}
+   Podemos hacer gráficos con \href{https://ctan.org/pkg/pgfplots}{\texttt{pgfplots}} (aunque de este paquete se puede hablar tanto como de \beamer).
+  \end{columns}
+}
+
+\subsection{Aún hay más!}

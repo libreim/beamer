@@ -1,0 +1,78 @@
+\section{Introducción}
+
+\frame{
+\frametitle{¡Contribuye!}
+  El código fuente de éstas diapositivas está disponible en:
+\begin{center}
+  \huge \href{http://github.com/pbaeyens/beamer}{github.com/pbaeyens/beamer}
+\end{center}
+  Erratas, correcciones y aportaciones son bienvenidas.
+}
+
+\frame{
+  \frametitle{¿Qué es \beamer?}
+  \beamer es una clase de documento de $\LaTeX$ que genera diapositivas
+  o transparencias con animaciones, gráficos, tablas...
+
+  Puede compilarse con casi cualquier compilador de $\LaTeX$ y personalizarse al detalle.
+
+  \pause
+
+    \begin{block}{\texttt{pandoc}}
+      \texttt{pandoc} no sirve \frownie{}. Podemos generar presentaciones con \beamer
+      pero tiene \href{http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc}{una sintaxis propia}.
+    \end{block}
+}
+
+\frame{
+  \frametitle{Instalación}
+
+  Para usar \beamer se necesitan 3 paquetes:
+
+  \begin{itemize}
+    \item \beamer
+    \item \texttt{pgf}
+    \item \texttt{xcolor}
+  \end{itemize}
+
+    \pause
+
+  \begin{block}{Debian/Ubuntu y derivados}
+    En Debian y derivados podemos instalar \texttt{latex-beamer}. También podemos
+    utilizar \href{http://www.ctan.org/pkg/texliveonfly}{\texttt{texliveonfly}}.
+  \end{block}
+}
+
+\frame{
+  \frametitle{Primeros pasos}
+
+  Para empezar a usar \beamer, indicamos la clase del documento:
+
+    \begin{center}
+      \Large \texttt
+      {\color{black}\textbackslash}{\color{keywords}documentclass}{\color{black}\{beamer\}}
+    \end{center}
+
+    \pause
+    \begin{alertblock}{Cambiando el tipo de letra}
+      \beamer utiliza una letra sin serifa para las fórmulas matemáticas por defecto.
+      Podemos utilizar la fuente de \texttt{article} pasando el argumento \texttt{mathserif}.
+    \end{alertblock}
+}
+
+\frame{
+  \frametitle{Diapositivas}
+  Creamos las diapositivas utilizando el entorno o la función \texttt{frame}:
+
+  \ejemplo{ejemplo1.tex}
+
+  \pause
+  \begin{block}{Tipos de diapositivas}
+    \begin{itemize}[<+->]
+      \item \texttt{shrink}:  Reduce el tamaño para introducir más contenido.
+      \item \texttt{plain}:   Diapositiva simple, útil para imágenes.
+      \item \texttt{fragile}: Necesario para mostrar \texttt{verbatim}.
+      \item \texttt{allowframebreaks}: Divide el contenido en diapositivas.
+    \end{itemize}
+  \end{block}
+}

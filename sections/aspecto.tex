@@ -1,0 +1,73 @@
+\section{Aspecto}
+
+\subsection{Temas}
+% TBD
+% General, Interno, Externo, Color
+
+\subsection{Bloques}
+
+\begin{frame}
+  \beamer permite crear bloques para estructurar la información:
+  \espacio
+  \begin{columns}
+   \column{.5\textwidth}
+      \pauses
+      \begin{block}{Bloques normales}
+        Se crean con el entorno \\ \texttt{block}.
+      \end{block}
+
+      \pause
+      \begin{alertblock}{Bloques alerta}
+        Se crean con el entorno \texttt{alertblock}.
+      \end{alertblock}
+   \column{.5\textwidth}
+    \pause
+    \begin{exampleblock}{Bloques ejemplo}
+      Se crean con el entorno \texttt{exampleblock}.
+    \end{exampleblock}
+
+    \pause
+    \begin{theorem}
+      No existen números mayores que 2.
+    \end{theorem}
+  \end{columns}
+
+  \pause
+  \espacio
+  Los bloques matemáticos (teoremas, demostraciones...) tienen el mismo aspecto
+  que los bloques normales.
+\end{frame}
+
+\subsection{Velos} %TBD
+\subsection{Columnas} %TBD
+
+\subsection{Formato}
+
+\frame{
+\frametitle{Tamaño y color}
+\begin{columns}
+  \column{.5\textwidth}
+    Podemos cambiar el tamaño de letra utilizando los comandos habituales en $\LaTeX$.
+    También podemos cambiar el color, utilizando el paquete \texttt{xcolor}.
+    \espacio
+    Los colores básicos son: {\color{white} blanco}, {\color{black} negro},
+    {\color{red} rojo}, {\color{green} verde}, {\color{blue} azul},
+    {\color{cyan} cian}, {\color{magenta} magenta} y {\color{yellow} amarillo},
+    aunque se pueden \href{http://en.wikibooks.org/wiki/LaTeX/Colors}{ampliar y combinar}.
+
+  \column{.5\textwidth}
+    \begin{itemize}
+      \item \texttt{\tiny \textbackslash tiny}
+      \item \texttt{\scriptsize \textbackslash scriptsize}
+      \item \texttt{\footnotesize \textbackslash footnotesize}
+      \item \texttt{\small \textbackslash small}
+      \item \texttt{\normalsize \textbackslash normalsize}
+      \item \texttt{\large \textbackslash large}
+      \item \texttt{\Large \textbackslash Large}
+      \item \texttt{\LARGE \textbackslash LARGE}
+      \item \texttt{\huge \textbackslash huge}
+    \end{itemize}
+\end{columns}
+}
+
+% Matemáticas
