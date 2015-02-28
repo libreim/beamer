@@ -5,13 +5,13 @@
 %% Paquetes y configuración %
 
 % Beamer
-\documentclass{beamer}
+\documentclass[compress]{beamer}
 
 % Idioma
 \usepackage[spanish]{babel} % Traducciones
 \usepackage[utf8]{inputenc} % Uso de caracteres UTF-8
 \uselanguage{Spanish}       % Traducciones beamer
-\languagepath{Spanish}      % tex.stackexchange.com/questions/168208
+\languagepath{Spanish}      % (tex.stackexchange.com/questions/168208)
 
 % Matemáticas
 \usepackage{amsfonts}
@@ -39,7 +39,7 @@ keywordstyle=\color{keywords},
 commentstyle=\color{comments},
 stringstyle=\color{strings},
 tabsize=2,
-% Incluir símbolos no ASCII (tex.stackexchange.com/questions/24528)
+% Acentos, ñ, ¿, ¡ (tex.stackexchange.com/questions/24528)
 extendedchars=true,
 literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
          {ú}{{\'u}}1 {ñ}{{\~n}}1 {¡}{{\textexclamdown}}1
@@ -55,34 +55,31 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 \usepackage{wasysym}
 
 %% Comandos %%
-% Comandos para incluir ejemplos como listings y mostrarlos
-  \newcommand{\ejemplo}[1]{\lstinputlisting{./Ejemplos/#1}}
-  \newcommand{\muestra}[1]{\input{./Ejemplos/#1}}
+\newcommand{\ejemplo}[1]{\lstinputlisting{./examples/#1}} % Mostrar ejemplos
+\newcommand{\seccion}[1]{\input{./sections/#1}}        % Incluir secciones
+\newcommand{\espacio}{\\~\\}                           % tex.stackexchange.com/questions/11622
+\newcommand{\beamer}{\texttt{beamer} }                 % Estilo único para beamer
 
-\newcommand{\espacio}{\\~\\}           % tex.stackexchange.com/questions/11622
-\newcommand{\beamer}{\texttt{beamer} } % Comando para poner 'beamer' con un estilo único.
 
 %% Temas %%
 % Tema y tema de color
-\usetheme{Dresden}
-\usecolortheme{dolphin}
-\useinnertheme{circles}
-\setbeamercovered{transparent}
-
-% Colores de los bloques
-
-% Bloque normal
+  \usetheme{Dresden}
+  \usecolortheme{dolphin}
+  \useinnertheme{circles}
+  \setbeamercovered{transparent}
+% Colores bloques
   \setbeamercolor{block title}{bg=title,fg=links}
   \setbeamercolor{block body}{bg=backg,fg=black}
-% Bloque alerta
   \setbeamercolor{block title alerted}{fg=red!70!black,bg=title!92!red}
   \setbeamercolor{block body alerted}{fg=black,bg=backg}
-% Bloque ejemplo
   \setbeamercolor{block title example}{fg=green!70!black,bg=title!92!green}
   \setbeamercolor{block body example}{fg=black,bg=backg}
-
 % Enlaces (tex.stackexchange.com/questions/13423)
   \hypersetup{colorlinks,linkcolor=,urlcolor=links}
+% Quita enlaces de navegación (stackoverflow.com/questions/3017030)
+  \setbeamertemplate{navigation symbols}{}
+% Quita barra inferior (stackoverflow.com/questions/1435837)
+  \setbeamertemplate{footline}[page number]{}
 
 
 %% Título y otros %%
@@ -95,169 +92,16 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 %% Presentación %%
 \begin{document}
 
-\frame{\titlepage}% Página de título
+\frame{\titlepage} % Página de título
 
 \frame{ % Índice
   \frametitle{Índice}
   \tableofcontents
 }
 
-\section{Introducción}
+\seccion{intro.tex}     % Introducción
+\seccion{aspecto.tex}   % Aspecto
+\seccion{otros.tex}     % Otros objetos
+\seccion{generando.tex} % Generando la presentacin
 
-\input{contribuye.tex}
-
-\frame{
-  \frametitle{¿Qué es \beamer?}
-  \beamer es una clase de documento de $\LaTeX$ que genera diapositivas
-  o transparencias con animaciones, gráficos, tablas...
-
-  Puede compilarse con casi cualquier compilador de $\LaTeX$ y personalizarse al detalle.
-
-  %\espacio
-  \pause
-
-    \begin{block}{\texttt{pandoc}}
-      \texttt{pandoc} no sirve \frownie{}. Podemos generar presentaciones con \beamer
-      pero tiene \href{http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc}{una sintaxis propia}.
-    \end{block}
-}
-
-\frame{
-  \frametitle{Instalación}
-
-  Para usar \beamer se necesitan 3 paquetes:
-
-  \begin{itemize}
-    \item \beamer
-    \item \texttt{pgf}
-    \item \texttt{xcolor}
-  \end{itemize}
-    \pause
-    \begin{block}{Debian/Ubuntu y derivados}
-    En Debian y derivados podemos instalar \texttt{latex-beamer}. También podemos utilizar \href{http://www.ctan.org/pkg/texliveonfly}{\texttt{texliveonfly}}.
-  \end{block}
-}
-
-\frame{
-  \frametitle{Primeros pasos}
-
-  Para empezar a usar \beamer, indicamos la clase del documento:
-
-    \begin{center}
-      \Large \texttt
-      {\color{black}\textbackslash}{\color{keywords}documentclass}{\color{black}\{beamer\}}
-    \end{center}
-
-    \pause
-    \begin{alertblock}{Cambiando el tipo de letra}
-      \beamer utiliza una letra sin serifa para las fórmulas matemáticas por defecto.
-      Podemos utilizar la fuente de \texttt{article} pasando el argumento \texttt{mathserif}.
-    \end{alertblock}
-}
-
-\frame{
-  \frametitle{Diapositivas}
-  Creamos las diapositivas utilizando el entorno o la función \texttt{frame}:
-
-  \ejemplo{ejemplo1.tex}
-
-  \pause
-  \begin{block}{Tipos de diapositivas}
-    \begin{itemize}[<+->]
-      \item \texttt{shrink}:  Reduce el tamaño para introducir más contenido.
-      \item \texttt{plain}:   Diapositiva simple, útil para imágenes.
-      \item \texttt{fragile}: Necesario para mostrar \texttt{verbatim}.
-      \item \texttt{allowframebreaks}: Divide el contenido en diapositivas.
-    \end{itemize}
-  \end{block}
-}
-
-\section{Aspecto}
-
-%\subsection{Temas}
-\subsection{Bloques}
-
-\begin{frame}
-  \beamer permite crear bloques para estructurar la información:
-  \espacio
-  \begin{columns}
-   \column{.5\textwidth}
-      \pauses
-      \begin{block}{Bloques normales}
-        Se crean con el entorno \\
-        {\centering \texttt{block}.}
-      \end{block}
-
-      \pause
-      \begin{alertblock}{Bloques alerta}
-        Se crean con el entorno \texttt{alertblock}.
-      \end{alertblock}
-   \column{.5\textwidth}
-    \pause
-    \begin{exampleblock}{Bloques ejemplo}
-      Se crean con el entorno \texttt{exampleblock}.
-    \end{exampleblock}
-
-    \pause
-    \begin{theorem}
-      No existen números mayores que 2.
-    \end{theorem}
-  \end{columns}
-
-  \pause
-  \espacio
-  Los bloques matemáticos (teoremas, demostraciones...) tienen el mismo aspecto
-  que los bloques normales.
-\end{frame}
-
-%\subsection{\textit{Overlay}}
-%\subsection{Columnas}
-
-\subsection{Tipo de letra}
-
-\frame{
-\frametitle{Tamaño}
-\begin{columns}
-  \column{.5\textwidth}
-    Podemos cambiar el tamaño de letra utilizando los comandos habituales en $\LaTeX$.
-    También podemos cambiar el color, utilizando el paquete \texttt{xcolor}.
-
-  \column{.5\textwidth}
-    \begin{itemize}
-      \item \texttt{\tiny \textbackslash tiny}
-      \item \texttt{\scriptsize \textbackslash scriptsize}
-      \item \texttt{\footnotesize \textbackslash footnotesize}
-      \item \texttt{\small \textbackslash small}
-      \item \texttt{\normalsize \textbackslash normalsize}
-      \item \texttt{\large \textbackslash large}
-      \item \texttt{\Large \textbackslash Large}
-      \item \texttt{\LARGE \textbackslash LARGE}
-      \item \texttt{\huge \textbackslash huge}
-    \end{itemize}
-\end{columns}
-}
-
-
-\section{Gráficos y otras maravillas de \texttt{tikz}}
-
-\frame{
-\begin{columns}[c]
-  \column{.6\textwidth}
-    \begin{tikzpicture}
-      \begin{axis}[
-      ybar stacked,
-      bar width=.7cm,
-      ytick=\empty,
-      symbolic x coords={\beamer,LibreOffice,PowerPoint},
-      xtick=data,
-      ]
-        \addplot[fill=bars] coordinates
-        {(\beamer,100) (LibreOffice,9) (PowerPoint,4)};
-      \end{axis}
-    \end{tikzpicture}
-
-  \column{.4\textwidth}
-   Podemos hacer gráficos con \href{https://ctan.org/pkg/pgfplots}{\texttt{pgfplots}} (aunque de este paquete se puede hablar tanto como de \beamer).
-  \end{columns}
-}
 \end{document}

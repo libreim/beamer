@@ -1,15 +1,24 @@
 # beamer
-Guía de uso de beamer... en beamer.
+Guía de uso de `beamer` en `beamer`.
 
 # Índice
 
-- Compiladores
-- Temas
-- `frames`
-   - Tipos de `frames`
-   - Enlaces
-   - Blocks
-   - Columnas
-- Gráficos, animaciones, listings, mindmaps
-- Matemáticas
-- Items, mostrar y ocultar
+- Introducción
+  - ¿Qué es?
+  - Instalación
+  - Primeros pasos
+- Aspecto
+  - Temas
+  - Formato
+  - Bloques
+  - Columnas
+  - *Overlays*
+- Otros objetos
+  - Listings
+  - Enlaces internos
+  - Tablas
+  - Gráficos
+  - `tikz`
+- Produciendo la presentación
+  - Impresión
+  - Enlaces de interés
