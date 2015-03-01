@@ -11,7 +11,7 @@
   \espacio
   \begin{columns}
    \column{.5\textwidth}
-      \pauses
+      \pause
       \begin{block}{Bloques normales}
         Se crean con el entorno \\ \texttt{block}.
       \end{block}
@@ -20,6 +20,7 @@
       \begin{alertblock}{Bloques alerta}
         Se crean con el entorno \texttt{alertblock}.
       \end{alertblock}
+
    \column{.5\textwidth}
     \pause
     \begin{exampleblock}{Bloques ejemplo}
@@ -30,6 +31,7 @@
     \begin{theorem}
       No existen números mayores que 2.
     \end{theorem}
+
   \end{columns}
 
   \pause
@@ -38,7 +40,51 @@
   que los bloques normales.
 \end{frame}
 
-\subsection{Velos} %TBD
+\subsection{Overlays}
+
+\frame{
+  \frametitle{\textit{Overlays}}
+  \framesubtitle{Entornos de enumeración}
+  Los \textit{overlays} permiten mostrar elementos selectivamente.
+  Pueden utilizarse en casi cualquier elemento de \beamer.
+
+  \espacio
+
+  \begin{exampleblock}{\textit{Overlays} en \texttt{itemize}}
+
+  \begin{columns}
+    \column{.3\textwidth}
+      \muestra{overlay.tex}
+    \column{.5\textwidth}
+      \ejemplo{overlay.tex}
+  \end{columns}
+
+  \end{exampleblock}
+}
+
+\frame{
+  \frametitle{\textit{Overlays}}
+  \framesubtitle{Formato y matemáticas}
+  % TBD
+}
+
+\frame{
+\frametitle{\textit{Overlays} en \texttt{tikz}}
+\framesubtitle{Copiado vilmente de
+\href{http://tex.stackexchange.com/questions/55806}{tex.stackexchange.com}}
+\begin{center}
+  \begin{tikzpicture}[mindmap, concept color=gray!50, font=\sf, text=white]
+    \tikzstyle{level 1 concept}+=[font=\sf, sibling angle=90,level distance = 30mm]
+    \node[concept,scale=0.7] {También podemos}
+    [clockwise from=135]
+    child[concept color=orange, visible on=<2->]{ node[concept,scale=0.7]{usar los} }
+    child[concept color=orange, visible on=<3->]{ node[concept,scale=0.7]{\textit{overlays}} }
+    child[concept color=orange, visible on=<4->]{ node[concept,scale=0.7]{en} }
+    child[concept color=orange, visible on=<5->]{ node[concept,scale=0.7]{\texttt{tikz}} };
+  \end{tikzpicture}
+\end{center}
+}
+
 \subsection{Columnas} %TBD
 
 \subsection{Formato}
@@ -75,7 +121,7 @@
 
 Como en cualquier documento de $\LaTeX$, podemos mostrar expresiones matemáticas
 con la sintaxis habitual:
-  \[\mathcal{L} = \frac{-1}{4} F^2  + i\bar{\psi}D\!\!\!/\ \psi
+  \[\mathcal{L} = \frac{-1}{4} F^2  + i\bar{\psi}D\!\!\!\!/\ \psi
   + \bar{\psi}\phi\psi  + h.c.  + |D\phi|^2 - V (\phi)\]
 
 \pause
@@ -83,9 +129,7 @@ con la sintaxis habitual:
   \beamer utiliza una letra sin serifa para las fórmulas matemáticas por defecto.
   Podemos utilizar la fuente con serifa
   \href{http://tex.stackexchange.com/questions/34265}{incluyendo}:
-  
+
   \texttt{{\color{black}\textbackslash}{\color{keywords}usefonttheme}{\color{black} [onlymath]\{serif\}}}
 \end{alertblock}
 }
-}
-% Matemáticas

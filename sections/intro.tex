@@ -1,5 +1,7 @@
 \section{Introducción}
 
+\subsection{Instalación}
+
 \frame{
 \frametitle{¡Contribuye!}
   El código fuente de éstas diapositivas está disponible en:
@@ -11,8 +13,8 @@
 
 \frame{
   \frametitle{¿Qué es \beamer?}
-  \beamer es una clase de documento de $\LaTeX$ que genera diapositivas
-  o transparencias con animaciones, gráficos, tablas...
+  \href{https://www.ctan.org/pkg/beamer}{\beamer} es una clase de documento de $\LaTeX$
+  que genera diapositivas o transparencias con animaciones, gráficos, tablas...
 
   Puede compilarse con casi cualquier compilador de $\LaTeX$ y personalizarse al detalle.
 
@@ -43,6 +45,8 @@
   \end{block}
 }
 
+\subsection{Primeros pasos}
+
 \frame{
   \frametitle{Primeros pasos}
 
@@ -52,11 +56,16 @@
       \Large \texttt
       {\color{black}\textbackslash}{\color{keywords}documentclass}{\color{black}\{beamer\}}
     \end{center}
+
+  \pause
+  Si vamos a escribir en español lo indicamos con:
+  \ejemplo{idioma.tex}
 }
 
 \frame{
   \frametitle{Diapositivas}
-  Creamos las diapositivas utilizando el entorno o la función \texttt{frame}:
+  Los documentos de \beamer se dividen en diapositivas. Las creamos utilizando
+  el entorno \texttt{frame} o la función \texttt{frame}:
 
   \ejemplo{ejemplo1.tex}
 

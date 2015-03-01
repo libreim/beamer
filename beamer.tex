@@ -24,7 +24,7 @@
 \definecolor{comments}{HTML}{BDBDBD} % Comentarios
 \definecolor{keywords}{HTML}{08388c} % Palabras clave
 \definecolor{strings}{HTML}{FA5858}  % Strings
-\definecolor{links}{HTML}{3333B2}    % Enlaces
+\definecolor{links}{HTML}{2C2C95}    % Enlaces
 \definecolor{bars}{HTML}{045FB4}     % Barras (gráfico)
 
 % Código
@@ -32,7 +32,7 @@
 \lstset{
 language=[LaTeX]TeX,
 basicstyle=\footnotesize,
-morekeywords={frametitle,framesubtitle, href},
+morekeywords={frametitle,framesubtitle, href, uselanguage, languagepath},
 breaklines=true,
 backgroundcolor=\color{backg},
 keywordstyle=\color{keywords},
@@ -46,7 +46,6 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
          {¿}{{?`}}1
 }
 
-
 % Gráficos
 \usepackage{pgfplots}
 \pgfplotsset{width=7cm,compat=1.8} % Opciones para gráficos
@@ -54,8 +53,18 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 % Emoticonos
 \usepackage{wasysym}
 
+% tikz
+\usepackage{tikz}
+\usetikzlibrary{mindmap,trees,shadows}
+\tikzset{ % Genera overlays
+    invisible/.style={opacity=0},
+    visible on/.style={alt={#1{}{invisible}}},
+    alt/.code args={<#1>#2#3}{\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}},
+}
+
 %% Comandos %%
-\newcommand{\ejemplo}[1]{\lstinputlisting{./examples/#1}} % Mostrar ejemplos
+\newcommand{\ejemplo}[1]{\lstinputlisting{./examples/#1}} % Mostrar código de ejemplos
+\newcommand{\muestra}[1]{\input{./examples/#1}}        % Mostrar ejemplos
 \newcommand{\seccion}[1]{\input{./sections/#1}}        % Incluir secciones
 \newcommand{\espacio}{\\~\\}                           % tex.stackexchange.com/questions/11622
 \newcommand{\beamer}{\texttt{beamer} }                 % Estilo único para beamer
