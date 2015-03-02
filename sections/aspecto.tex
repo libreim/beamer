@@ -36,11 +36,26 @@
 
   \pause
   \espacio
-  Los bloques matemáticos (teoremas, demostraciones...) tienen el mismo aspecto
+  Los bloques matemáticos (teoremas, demostraciones \dots) tienen el mismo aspecto
   que los bloques normales.
 \end{frame}
 
 \subsection{Overlays}
+
+\frame{
+  \frametitle{\texttt{\textbackslash pause}}
+  El comando \texttt{pause} permite insertar pausas para mostrar los elementos en
+  una diapositiva:
+
+  \espacio
+  \begin{columns}
+    \column{.5\textwidth}
+      \ejemplo{pause.tex}
+    \column{.4\textwidth}
+      \muestra{pause.tex}
+  \end{columns}
+
+}
 
 \frame{
   \frametitle{\textit{Overlays}}
@@ -58,14 +73,33 @@
     \column{.5\textwidth}
       \ejemplo{overlay.tex}
   \end{columns}
-
+  \espacio
+  Si indicamos \texttt{[<+->]} los elementos aparecerán secuencialmente.
   \end{exampleblock}
 }
 
 \frame{
   \frametitle{\textit{Overlays}}
-  \framesubtitle{Formato y matemáticas}
-  % TBD
+  \framesubtitle{Otros}
+  \setbeamercovered{invisible}
+  La sintaxis de los \textit{overlays} permite indicar conjuntos de diapositivas
+  o intervalos. Podemos utilizarlos en muchos elementos y con órdenes que nos permiten:
+    \espacio
+
+    \begin{itemize}
+      \item \texttt{\textbackslash{\color{keywords}textbf}\alert<1>{<2>}\{2\}}
+      produce  negrita en la diapositiva \textbf<2>{2}.
+
+      \item \texttt{\textbackslash{\color{keywords}alert}\alert<2>{<3->}\{\$\textbackslash sum n\$\}}
+      produce \alert<3->{$\sum n$}.
+
+      \item Con \texttt{\textbackslash{\color{keywords}begin}\{block\}\alert<3>{<4->}} el
+      bloque no aparece hasta la cuarta diapositiva.
+    \end{itemize}
+
+    \begin{block}<4->{Bloque}
+      Texto.
+    \end{block}
 }
 
 \frame{
@@ -93,13 +127,14 @@
 \frametitle{Tamaño y color}
 \begin{columns}
   \column{.5\textwidth}
-    Podemos cambiar el tamaño de letra utilizando los comandos habituales en $\LaTeX$.
-    También podemos cambiar el color, utilizando el paquete \texttt{xcolor}.
+    Cambiamos el tamaño de letra utilizando los comandos habituales en $\LaTeX$.
+    También podemos cambiar el color, utilizando \texttt{xcolor}.
     \espacio
     Los colores básicos son: {\color{white} blanco}, {\color{black} negro},
     {\color{red} rojo}, {\color{green} verde}, {\color{blue} azul},
     {\color{cyan} cian}, {\color{magenta} magenta} y {\color{yellow} amarillo},
     aunque se pueden \href{http://en.wikibooks.org/wiki/LaTeX/Colors}{ampliar y combinar}.
+    \espacio
 
   \column{.5\textwidth}
     \begin{itemize}
