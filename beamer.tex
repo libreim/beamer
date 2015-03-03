@@ -67,7 +67,7 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 \newcommand{\ejemplo}[1]{\lstinputlisting{./examples/#1}} % Mostrar código de ejemplos
 \newcommand{\muestra}[1]{\input{./examples/#1}}        % Mostrar ejemplos
 \newcommand{\seccion}[1]{\input{./sections/#1}}        % Incluir secciones
-\newcommand{\espacio}{\vspace*{2\baselineskip}}        % Añade espacios
+\newcommand{\espacio}{\vspace*{\baselineskip}}        % Añade espacios
 \newcommand{\beamer}{\texttt{beamer} }                 % Estilo único para beamer
 
 
@@ -92,7 +92,8 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
   \setbeamertemplate{footline}[page number]{}
 % Tamaño de letra arbitrario
   \usepackage{lmodern}
-
+% Cajas
+  \usepackage{fancybox}
 
 
 %% Título y otros %%
@@ -116,9 +117,9 @@ Pablo Baeyens Fernández \\
   \tableofcontents
 }
 
-\seccion{intro.tex}       % Introducción
-\seccion{estructura.tex}  % Estructura
-\seccion{aspecto.tex}     % Aspecto
+%\seccion{intro.tex}       % Introducción
+%\seccion{estructura.tex}  % Estructura
+%\seccion{aspecto.tex}     % Aspecto
 \seccion{otros.tex}       % Otros objetos
 \seccion{generando.tex}   % Generando la presentacin
 

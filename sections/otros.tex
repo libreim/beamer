@@ -1,6 +1,17 @@
 \section{Otros objetos}
 
-\frame{
+\begin{frame}{Listings}
+  Para incluir código en las diapositivas utilizamos el paquete \href{https://www.ctan.org/tex-archive/macros/latex/contrib/listings}{\texttt{listings}}:
+  \ejemplo{listing.tex}
+  \espacio
+  \pause
+  \begin{alertblock}{Problemas con \texttt{lstlisting}}
+    Debemos incluir la opción \texttt{fragile} a las diapositivas con código.
+    Además, debemos \href{http://tex.stackexchange.com/questions/24528}{extender} los caracteres para mostrar los que no sean ASCII.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Gráficos}
 \begin{columns}[c]
   \column{.6\textwidth}
     \begin{tikzpicture}
@@ -19,6 +30,28 @@
   \column{.4\textwidth}
    Podemos hacer gráficos con \href{https://ctan.org/pkg/pgfplots}{\texttt{pgfplots}} (aunque de este paquete se puede hablar tanto como de \beamer).
   \end{columns}
-}
+\end{frame}
 
-\subsection{Aún hay más!}
+\begin{frame}{Aún hay más...}
+  \transglitter<1>
+  \setbeamercovered{dynamic}
+  No he podido cubrir todas las cosas que nos permite hacer \beamer \frownie{}.
+  Entre otras cosas, también podemos hacer:
+  \espacio
+  \begin{description}[<+->]
+    \item[Transiciones] Con \texttt{transglitter} obtenemos este efecto.
+    \item[Multimedia] Incluir vídeos con reproductor interno (sólo en Linux) o externo.
+    \item[Temporización] Ajustamos el tiempo de una diapositiva con \texttt{transsetduration}.
+    \item[Animaciones] No he conseguido que funcionen \frownie{}.
+    \item[Cajas] \shadowbox{¡Podemos poner cajas horribles para meter texto!}
+    \item[Overlays de imágenes] Incluyendo, por ejemplo, dinosaurios.
+  \end{description}
+
+  \only<7>{%
+  \begin{tikzpicture}[remember picture, overlay]
+  \node[inner sep=0pt] at (current page.center) {%
+      \includegraphics[width=\paperwidth,height=\paperheight]{./img/dinosaurio.png}%
+  };%
+  \end{tikzpicture}
+  }
+\end{frame}
