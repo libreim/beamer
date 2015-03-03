@@ -1,135 +1,18 @@
 \section{Aspecto}
-
 \subsection{Temas}
 % TBD
 % General, Interno, Externo, Color
 
-\subsection{Bloques}
-
-\begin{frame}
-  \beamer permite crear bloques para estructurar la información:
-  \espacio
-  \begin{columns}
-   \column{.5\textwidth}
-      \pause
-      \begin{block}{Bloques normales}
-        Se crean con el entorno \\ \texttt{block}.
-      \end{block}
-
-      \pause
-      \begin{alertblock}{Bloques alerta}
-        Se crean con el entorno \texttt{alertblock}.
-      \end{alertblock}
-
-   \column{.5\textwidth}
-    \pause
-    \begin{exampleblock}{Bloques ejemplo}
-      Se crean con el entorno \texttt{exampleblock}.
-    \end{exampleblock}
-
-    \pause
-    \begin{theorem}
-      No existen números mayores que 2.
-    \end{theorem}
-
-  \end{columns}
-
-  \pause
-  \espacio
-  Los bloques matemáticos (teoremas, demostraciones \dots) tienen el mismo aspecto
-  que los bloques normales.
-\end{frame}
-
-\subsection{Overlays}
-
-\frame{
-  \frametitle{\texttt{\textbackslash pause}}
-  El comando \texttt{pause} permite insertar pausas para mostrar los elementos en
-  una diapositiva:
-
-  \espacio
-  \begin{columns}
-    \column{.5\textwidth}
-      \ejemplo{pause.tex}
-    \column{.4\textwidth}
-      \muestra{pause.tex}
-  \end{columns}
-
-}
-
-\frame{
-  \frametitle{\textit{Overlays}}
-  \framesubtitle{Entornos de enumeración}
-  Los \textit{overlays} permiten mostrar elementos selectivamente.
-  Pueden utilizarse en casi cualquier elemento de \beamer.
-
-  \espacio
-
-  \begin{exampleblock}{\textit{Overlays} en \texttt{itemize}}
-
-  \begin{columns}
-    \column{.3\textwidth}
-      \muestra{overlay.tex}
-    \column{.5\textwidth}
-      \ejemplo{overlay.tex}
-  \end{columns}
-  \espacio
-  Si indicamos \texttt{[<+->]} los elementos aparecerán secuencialmente.
-  \end{exampleblock}
-}
-
-\frame{
-  \frametitle{\textit{Overlays}}
-  \framesubtitle{Otros}
-  \setbeamercovered{invisible}
-  La sintaxis de los \textit{overlays} permite indicar conjuntos de diapositivas
-  o intervalos. Podemos utilizarlos en muchos elementos y con órdenes que nos permiten:
-    \espacio
-
-    \begin{itemize}
-      \item \texttt{\textbackslash{\color{keywords}textbf}\alert<1>{<2>}\{2\}}
-      produce  negrita en la diapositiva \textbf<2>{2}.
-
-      \item \texttt{\textbackslash{\color{keywords}alert}\alert<2>{<3->}\{\$\textbackslash sum n\$\}}
-      produce \alert<3->{$\sum n$}.
-
-      \item Con \texttt{\textbackslash{\color{keywords}begin}\{block\}\alert<3>{<4->}} el
-      bloque no aparece hasta la cuarta diapositiva.
-    \end{itemize}
-
-    \begin{block}<4->{Bloque}
-      Texto.
-    \end{block}
-}
-
-\frame{
-\frametitle{\textit{Overlays} en \texttt{tikz}}
-\framesubtitle{Copiado vilmente de
-\href{http://tex.stackexchange.com/questions/55806}{tex.stackexchange.com}}
-\begin{center}
-  \begin{tikzpicture}[mindmap, concept color=gray!50, font=\sf, text=white]
-    \tikzstyle{level 1 concept}+=[font=\sf, sibling angle=90,level distance = 30mm]
-    \node[concept,scale=0.7] {También podemos}
-    [clockwise from=135]
-    child[concept color=orange, visible on=<2->]{ node[concept,scale=0.7]{usar los} }
-    child[concept color=orange, visible on=<3->]{ node[concept,scale=0.7]{\textit{overlays}} }
-    child[concept color=orange, visible on=<4->]{ node[concept,scale=0.7]{en} }
-    child[concept color=orange, visible on=<5->]{ node[concept,scale=0.7]{\texttt{tikz}} };
-  \end{tikzpicture}
-\end{center}
-}
-
-\subsection{Columnas} %TBD
-
 \subsection{Formato}
 
-\frame{
-\frametitle{Tamaño y color}
+\begin{frame}{Tamaño y color}
 \begin{columns}
   \column{.5\textwidth}
     Cambiamos el tamaño de letra utilizando los comandos habituales en $\LaTeX$.
     También podemos cambiar el color, utilizando \texttt{xcolor}.
+
     \espacio
+
     Los colores básicos son: {\color{white} blanco}, {\color{black} negro},
     {\color{red} rojo}, {\color{green} verde}, {\color{blue} azul},
     {\color{cyan} cian}, {\color{magenta} magenta} y {\color{yellow} amarillo},
@@ -149,15 +32,16 @@
       \item \texttt{\huge \textbackslash huge}
     \end{itemize}
 \end{columns}
-}
+\end{frame}
 
-\frame{
-\frametitle{Matemáticas}
+\begin{frame}{Matemáticas}
 
 Como en cualquier documento de $\LaTeX$, podemos mostrar expresiones matemáticas
 con la sintaxis habitual:
-  \[\mathcal{L} = \frac{-1}{4} F^2  + i\bar{\psi}D\!\!\!\!/\ \psi
-  + \bar{\psi}\phi\psi  + h.c.  + |D\phi|^2 - V (\phi)\]
+  \begin{equation}
+    \mathcal{L} = \frac{-1}{4} F^2  + i\bar{\psi}D\!\!\!\!/\ \psi
+  + \bar{\psi}\phi\psi  + h.c.  + |D\phi|^2 - V (\phi)
+  \end{equation}
 
 \pause
 \begin{alertblock}{Cambiando el tipo de letra}
@@ -167,4 +51,4 @@ con la sintaxis habitual:
 
   \texttt{{\color{black}\textbackslash}{\color{keywords}usefonttheme}{\color{black} [onlymath]\{serif\}}}
 \end{alertblock}
-}
+\end{frame}

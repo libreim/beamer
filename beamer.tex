@@ -33,7 +33,7 @@
 language=[LaTeX]TeX,
 basicstyle=\footnotesize,
 morekeywords={frametitle,framesubtitle, href, uselanguage, languagepath},
-otherkeywords={pause},
+otherkeywords={pause, column},
 breaklines=true,
 backgroundcolor=\color{backg},
 keywordstyle=\color{keywords},
@@ -67,7 +67,7 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 \newcommand{\ejemplo}[1]{\lstinputlisting{./examples/#1}} % Mostrar código de ejemplos
 \newcommand{\muestra}[1]{\input{./examples/#1}}        % Mostrar ejemplos
 \newcommand{\seccion}[1]{\input{./sections/#1}}        % Incluir secciones
-\newcommand{\espacio}{\\~\\}                           % tex.stackexchange.com/questions/11622
+\newcommand{\espacio}{\vspace*{2\baselineskip}}        % tex.stackexchange.com/questions/11622
 \newcommand{\beamer}{\texttt{beamer} }                 % Estilo único para beamer
 
 
@@ -90,28 +90,36 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
   \setbeamertemplate{navigation symbols}{}
 % Quita barra inferior (stackoverflow.com/questions/1435837)
   \setbeamertemplate{footline}[page number]{}
+% Tamaño de letra arbitrario
+  \usepackage{lmodern}
+
 
 
 %% Título y otros %%
 \title{Cómo usar \beamer}                                               % Título
 \subtitle{Una guía escrita en \beamer}                                  % Subtítulo
-\author[Pablo Baeyens]{Pablo Baeyens Fernández \\ \href{mailto:pbaeyens31+github@gmail.com}{pbaeyens31+github@gmail.com}} % Autor y e-mail
+\author[Pablo Baeyens]{ %
+Pablo Baeyens Fernández \\
+\href{mailto:pbaeyens31+github@gmail.com}{pbaeyens31+github@gmail.com}} % Autor y e-mail
 \date{DGIIM}                                                            % Fecha
 
 
 %% Presentación %%
 \begin{document}
 
-\frame{\titlepage} % Página de título
+\frame{%
+\titlepage
+}
 
 \frame{ % Índice
   \frametitle{Índice}
   \tableofcontents
 }
 
-\seccion{intro.tex}     % Introducción
-\seccion{aspecto.tex}   % Aspecto
-\seccion{otros.tex}     % Otros objetos
-\seccion{generando.tex} % Generando la presentacin
+\seccion{intro.tex}       % Introducción
+\seccion{estructura.tex}  % Estructura
+\seccion{aspecto.tex}     % Aspecto
+\seccion{otros.tex}       % Otros objetos
+\seccion{generando.tex}   % Generando la presentacin
 
 \end{document}

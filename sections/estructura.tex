@@ -1,0 +1,141 @@
+\section{Estructura}
+
+\subsection{Bloques}
+
+\begin{frame}
+  \beamer permite crear bloques para estructurar la información:
+  \espacio
+  \begin{columns}
+   \column{.5\textwidth}
+      \pause
+      \begin{block}{Bloques normales}
+        Se crean con el entorno \\ \texttt{block}.
+      \end{block}
+
+      \pause
+      \begin{alertblock}{Bloques alerta}
+        Se crean con el entorno \texttt{alertblock}.
+      \end{alertblock}
+
+   \column{.5\textwidth}
+    \pause
+    \begin{exampleblock}{Bloques ejemplo}
+      Se crean con el entorno \texttt{exampleblock}.
+    \end{exampleblock}
+
+    \pause
+    \begin{theorem}
+      No existen números mayores que 2.
+    \end{theorem}
+
+  \end{columns}
+
+  \pause
+  \espacio
+  Los bloques matemáticos (teoremas, demostraciones \dots) tienen el mismo aspecto
+  que los bloques normales.
+\end{frame}
+
+\subsection{Overlays}
+
+\begin{frame}[fragile]{\texttt{\textbackslash pause}}
+  El comando \texttt{pause} permite insertar pausas para mostrar los elementos en
+  una diapositiva:
+
+  \espacio
+  \begin{columns}
+    \column{.5\textwidth}
+      \ejemplo{pause.tex}
+    \column{.4\textwidth}
+      \muestra{pause.tex}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{\textit{Overlays}}{Entornos de enumeración}
+  Los \textit{overlays} permiten mostrar elementos selectivamente.
+  Pueden utilizarse en casi cualquier elemento de \beamer.
+
+  \espacio
+
+  \begin{exampleblock}{\textit{Overlays} en \texttt{itemize}}
+
+  \begin{columns}
+    \column{.3\textwidth}
+      \muestra{overlay.tex}
+    \column{.5\textwidth}
+      \ejemplo{overlay.tex}
+  \end{columns}
+  \espacio
+  Si indicamos \texttt{[<+->]} los elementos aparecerán secuencialmente.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\textit{Overlays}}{Formato}
+  \setbeamercovered{invisible}
+  La sintaxis de los \textit{overlays} permite indicar conjuntos de diapositivas
+  o intervalos. Podemos utilizarlos en muchos elementos y con órdenes que nos permiten:
+    \espacio
+
+    \begin{itemize}
+      \item \texttt{\textbackslash{\color{keywords}textbf}\alert<1>{<2>}\{2\}}
+      produce  negrita en la diapositiva \textbf<2>{2}.
+
+      \item
+      \texttt{\textbackslash{\color{keywords}alert}\alert<3>{<4->}\{\$\textbackslash sum n\$\}}
+      produce \alert<4->{$\sum n$}.
+
+      \item Con \texttt{\textbackslash{\color{keywords}begin}\{block\}\alert<5>{<6->}} el
+      bloque no aparece hasta la cuarta diapositiva.
+    \end{itemize}
+
+    \begin{block}<6->{Bloque}
+      Texto.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{\textit{Overlays}}{Otros comandos}
+  Utilizando la misma sintaxis, tenemos otros comandos:
+  \ejemplo{overlaycom.tex}
+  \espacio
+  \muestra{overlaycom.tex}
+\end{frame}
+
+\begin{frame}{Overlays}{Ajustando overlays}
+  Para ajustar el comportamiento de los \textit{overlays} con la orden \texttt{setbeamercovered}:
+  \espacio
+
+  \begin{block}{}
+    \begin{description}
+      \item[transparent] Reduce la opacidad de los elementos cubiertos.
+      \item[invisible]   Los elementos cubiertos no se muestran.
+      \item[dynamic]     Los elementos más \textit{lejanos} se ven menos.
+    \end{description}
+  \end{block}
+\end{frame}
+
+\begin{frame}{\textit{Overlays} en \texttt{tikz}}{Copiado vilmente de %
+\href{http://tex.stackexchange.com/questions/55806}{tex.stackexchange.com}}
+  \begin{center}
+    \begin{tikzpicture}[mindmap, concept color=gray!50, font=\sf, text=white]
+      \tikzstyle{level 1 concept}+=[font=\sf, sibling angle=90,level distance = 30mm]
+      \node[concept,scale=0.7] {También podemos}
+      [clockwise from=135]
+      child[concept color=orange, visible on=<2->]{ node[concept,scale=0.7]{usar los} }
+      child[concept color=orange, visible on=<3->]{ node[concept,scale=0.7]{\textit{overlays}}}
+      child[concept color=orange, visible on=<4->]{ node[concept,scale=0.7]{en} }
+      child[concept color=orange, visible on=<5->]{ node[concept,scale=0.7]{\texttt{tikz}} };
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\subsection{Columnas}
+
+\begin{frame}{Columnas}
+  El entorno \texttt{columns} nos permite organizar la disposición de los
+  elementos en una diapositiva o entorno en un número arbitrario de columnas.
+  \espacio
+  \begin{overlayarea}{\textwidth}{5cm}
+    \only<1>{\ejemplo{cols.tex}}
+    \only<2>{\espacio \espacio \muestra{cols.tex}}
+  \end{overlayarea}
+\end{frame}
