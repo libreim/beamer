@@ -15,7 +15,17 @@
 \end{frame}
 
 \begin{frame}{Enlaces internos}
+  Los comandos \texttt{hypertarget} y \texttt{hyperlink} nos permiten crear enlaces internos:
+  \begin{columns}
+    \column{.5\textwidth}
+      \begin{exampleblock}{Creando enlaces}
+        Si pulsamos \hyperlink{ls}{aquí} iremos a la diapositva anterior
+      \end{exampleblock}
+    \column{.5\textwidth}
+      \begin{exampleblock}{Botones}
 
+      \end{exampleblock}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Gráficos}
@@ -50,12 +60,15 @@
     \item[Multimedia] Incluir vídeos con reproductor interno (sólo en Linux) o externo.
     \item[Temporización] Ajustamos el tiempo de una diapositiva con \texttt{transsetduration}.
     \item[Animaciones] No he conseguido que funcionen \frownie{}.
-    \item[Cajas]
-      \begin{beamercolorbox}[shadow=true]{block title}
-        Podemos definir cajas para meter texto.
-      \end{beamercolorbox}
+    \item[Cajas] Podemos definir cajas para meter texto.
     \item[Overlays de imágenes] Incluyendo, por ejemplo, dinosaurios.
   \end{description}
+
+  \only<5>{
+  \begin{beamercolorbox}[shadow=true]{block title}
+    Una caja de ejemplo.
+  \end{beamercolorbox}
+  }
 
   \only<7>{%
   \begin{tikzpicture}[remember picture, overlay]

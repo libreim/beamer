@@ -2,17 +2,15 @@
 
 \subsection{Instalación}
 
-\frame{
-\frametitle{¡Contribuye!}
+\begin{frame}{¡Contribuye!}
   El código fuente de éstas diapositivas está disponible en:
 \begin{center}
   \huge \href{http://github.com/pbaeyens/beamer}{github.com/pbaeyens/beamer}
 \end{center}
   Erratas, correcciones y aportaciones son bienvenidas.
-}
+\end{frame}
 
-\frame{
-  \frametitle{¿Qué es \beamer?}
+\begin{frame}{¿Qué es \beamer?}
   \href{https://www.ctan.org/pkg/beamer}{\beamer} es una clase de documento de $\LaTeX$
   que genera diapositivas o transparencias con animaciones, gráficos, tablas...
 
@@ -21,14 +19,14 @@
   \pause
 
     \begin{block}{\texttt{pandoc}}
-      \texttt{pandoc} no sirve \frownie{}. Podemos generar presentaciones con \beamer
-      pero tiene \href{http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc}{una sintaxis propia}.
+      \texttt{pandoc} no sirve \frownie{}. Podemos generar presentaciones
+       con \beamer pero tiene
+    \href{http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc}{%
+    una sintaxis propia}.
     \end{block}
-}
+\end{frame}
 
-\frame{
-  \frametitle{Instalación}
-
+\begin{frame}{Instalación}
   Para usar \beamer se necesitan 3 paquetes:
 
   \begin{itemize}
@@ -43,12 +41,11 @@
     En Debian y derivados podemos instalar \texttt{latex-beamer}. También podemos
     utilizar \href{http://www.ctan.org/pkg/texliveonfly}{\texttt{texliveonfly}}.
   \end{block}
-}
+\end{frame}
 
 \subsection{Primeros pasos}
 
-\frame{
-  \frametitle{Primeros pasos}
+\begin{frame}{Primeros pasos}
 
   Para empezar a usar \beamer, indicamos la clase del documento:
 
@@ -60,10 +57,9 @@
   \pause
   Si vamos a escribir en español lo indicamos con:
   \ejemplo{idioma.tex}
-}
+\end{frame}
 
-\frame{
-  \frametitle{Diapositivas}
+\begin{frame}{Diapositivas}
   Los documentos de \beamer se dividen en diapositivas. Las creamos utilizando
   el entorno \texttt{frame} o la función \texttt{frame}:
 
@@ -78,4 +74,4 @@
       \item \texttt{allowframebreaks}: Divide el contenido en diapositivas.
     \end{itemize}
   \end{block}
-}
+\end{frame}
