@@ -10,6 +10,7 @@ Guía de uso de `beamer` en `beamer`.
 - Aspecto
   - Temas
   - Formato
+- Estructura
   - Bloques
   - Columnas
   - *Overlays*
