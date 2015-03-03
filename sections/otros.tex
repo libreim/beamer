@@ -1,7 +1,8 @@
 \section{Otros objetos}
 
 \begin{frame}{Listings}
-  Para incluir código en las diapositivas utilizamos el paquete \href{https://www.ctan.org/tex-archive/macros/latex/contrib/listings}{\texttt{listings}}:
+  Para incluir código en las diapositivas utilizamos el paquete
+  \href{https://www.ctan.org/tex-archive/macros/latex/contrib/listings}{\texttt{listings}}:
   \espacio
   \ejemplo{listing.tex}
   \espacio
@@ -11,6 +12,10 @@
     Además, debemos \href{http://tex.stackexchange.com/questions/24528}{extender}
     los caracteres para mostrar los que no sean ASCII.
   \end{alertblock}
+\end{frame}
+
+\begin{frame}{Enlaces internos}
+
 \end{frame}
 
 \begin{frame}{Gráficos}
@@ -45,7 +50,10 @@
     \item[Multimedia] Incluir vídeos con reproductor interno (sólo en Linux) o externo.
     \item[Temporización] Ajustamos el tiempo de una diapositiva con \texttt{transsetduration}.
     \item[Animaciones] No he conseguido que funcionen \frownie{}.
-    \item[Cajas] \shadowbox{¡Podemos poner cajas horribles para meter texto!}
+    \item[Cajas]
+    \begin{beamercolorbox}[shadow=true]
+      Podemos poner cajas de colores para meter texto.
+    \end{beamercolorbox}
     \item[Overlays de imágenes] Incluyendo, por ejemplo, dinosaurios.
   \end{description}
 
