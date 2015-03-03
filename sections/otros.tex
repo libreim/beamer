@@ -63,17 +63,17 @@
     \item[Cajas] Podemos definir cajas para meter texto.
     \item[Overlays de imágenes] Incluyendo, por ejemplo, dinosaurios.
   \end{description}
-
-  \only<5>{
-  \begin{beamercolorbox}[shadow=true]{block title}
+  \espacio
+  \uncover<5>{
+  \begin{beamercolorbox}[shadow=true, rounded=true]{block title}
     Una caja de ejemplo.
   \end{beamercolorbox}
   }
 
   \only<7>{%
   \begin{tikzpicture}[remember picture, overlay]
-  \node[inner sep=0pt] at (current page.center) {%
-      \includegraphics[width=\paperwidth,height=\paperheight]{./img/dinosaurio.png}%
+  \node[inner sep=1pt] at (current page.center) {%
+      \includegraphics[width=.9\paperwidth,height=.9\paperheight]{./img/dinosaurio.png}%
   };%
   \end{tikzpicture}
   }
