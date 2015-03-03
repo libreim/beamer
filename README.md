@@ -17,9 +17,8 @@ Guía de uso de `beamer` en `beamer`.
 - Otros objetos
   - Listings
   - Enlaces internos
-  - Tablas
+  - Imágenes
   - Gráficos
-  - `tikz`
 - Produciendo la presentación
   - Impresión
   - Enlaces de interés
