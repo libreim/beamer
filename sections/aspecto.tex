@@ -1,8 +1,58 @@
 \section{Aspecto}
-
 \subsection{Temas}
-% TBD
-% General, Interno, Externo, Color
+
+\begin{frame}{Temas}
+  \beamer trae por defecto una serie de temas que podemos personalizar. Los temas
+  se dividen en 5 tipos:
+  \espacio
+  \only<-4>{
+  \begin{block}{Temas}
+    \begin{description}
+      \item[Generales]\textbackslash \texttt{\color{keywords}usetheme\{\color{black}nombre\}}
+      \item[Internos]
+      \textbackslash\texttt{\color{keywords}useinnertheme\{\color{black}nombre\}}
+      \\ {\small Entornos de enumeración, bloques...}
+      \item[Externos]
+      \textbackslash\texttt{\color{keywords}useoutertheme\{\color{black}nombre\}}
+      \\ {\small Barras superiores, inferiores y laterales.}
+      \item[Colores]
+      \textbackslash \texttt{\color{keywords}usecolortheme\{\color{black}nombre\}}
+      \item[Fuentes]
+      \textbackslash \texttt{\color{keywords}usefonttheme\{\color{black}nombre\}}
+    \end{description}
+  \end{block}
+  }
+  \only<5>{
+  \begin{exampleblock}{Temas de esta presentación}
+    Los temas usados en esta presentación son:
+    \espacio
+    \ejemplo{temas.tex}
+    \espacio
+    Para modificar con más detalle utilizamos \texttt{setbeamercolor} y \texttt{setbeamertemplate}.
+  \end{exampleblock}
+  }
+\end{frame}
+
+\begin{frame}{Temas}{Temas generales}
+  Los temas generales pueden agruparse en varios tipos:
+  \espacio
+  \begin{itemize}[<alert@+>]
+    \item Sin barras de navegación.
+    \item Con árbol de navegación.
+    \item Con tabla de contenidos lateral.
+    \item Con marco de navegación.  \only<4>{Como este!}
+    \item Con información sobre sección y subsección.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Temas}
+  Los temas disponibles están en la \href{http://www.hartwork.org/beamer-theme-matrix}{\textit{Beamer theme Matrix}}:
+
+  \begin{center}
+    \includegraphics[width=.9\textwidth]{./img/theme-matrix.png}
+  \end{center}
+  \espacio
+\end{frame}
 
 \subsection{Formato}
 

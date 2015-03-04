@@ -19,6 +19,4 @@ Guía de uso de `beamer` en `beamer`.
   - Enlaces internos
   - Imágenes
   - Gráficos
-- Produciendo la presentación
-  - Impresión
   - Enlaces de interés

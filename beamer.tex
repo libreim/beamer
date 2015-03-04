@@ -33,7 +33,7 @@
 language=[LaTeX]TeX,
 basicstyle=\footnotesize,
 morekeywords={frametitle,framesubtitle, href, uselanguage, languagepath},
-otherkeywords={pause, column},
+otherkeywords={pause, column,usetheme, usecolortheme, useinnertheme},
 breaklines=true,
 backgroundcolor=\color{backg},
 keywordstyle=\color{keywords},
@@ -65,11 +65,11 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 
 %% Comandos %%
 \newcommand{\ejemplo}[1]{\lstinputlisting{./examples/#1}} % Mostrar código de ejemplos
-\newcommand{\muestra}[1]{\input{./examples/#1}}        % Mostrar ejemplos
-\newcommand{\seccion}[1]{\input{./sections/#1}}        % Incluir secciones
-\newcommand{\espacio}{\vspace*{\baselineskip}}        % Añade espacios
-\newcommand{\beamer}{\texttt{beamer} }                 % Estilo único para beamer
-
+\newcommand{\muestra}[1]{\input{./examples/#1}}           % Mostrar ejemplos
+\newcommand{\seccion}[1]{\input{./sections/#1}}           % Incluir secciones
+\newcommand{\espacio}{\vspace*{\baselineskip}}            % Añade espacios
+\newcommand{\beamer}{\texttt{beamer} }                    % Estilo único para beamer
+\newcommand{\enlace}[3]{\textbf{\href{#1}{#2}} - {\small #3}}  % Estílo único para refs
 
 %% Temas %%
 % Tema y tema de color
@@ -89,7 +89,7 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 % Quita enlaces de navegación (stackoverflow.com/questions/3017030)
   \setbeamertemplate{navigation symbols}{}
 % Quita barra inferior (stackoverflow.com/questions/1435837)
-  \setbeamertemplate{footline}[page number]{}
+  \setbeamertemplate{footline}{}
 % Tamaño de letra arbitrario
   \usepackage{lmodern}
 % Cajas
@@ -118,10 +118,10 @@ Pablo Baeyens Fernández \\
   \tableofcontents
 }
 
-%\seccion{intro.tex}       % Introducción
-%\seccion{estructura.tex}  % Estructura
-%\seccion{aspecto.tex}     % Aspecto
+\seccion{intro.tex}       % Introducción
+\seccion{estructura.tex}  % Estructura
+\seccion{aspecto.tex}     % Aspecto
 \seccion{otros.tex}       % Otros objetos
-%\seccion{generando.tex}   % Generando la presentacin
+\seccion{enlaces.tex}     % Enlaces de interés
 
 \end{document}

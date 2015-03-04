@@ -1,18 +1,22 @@
 \section{Otros objetos}
 
-\begin{frame}{Listings}
-  \hypertarget{ls}{}
-  Para incluir código en las diapositivas utilizamos el paquete
-  \href{https://www.ctan.org/tex-archive/macros/latex/contrib/listings}{\texttt{listings}}:
-  \espacio
-  \ejemplo{listing.tex}
-  \espacio
-  \pause
-  \begin{alertblock}{Ajustando \texttt{listings}}
-    Debemos incluir la opción \texttt{fragile} a las diapositivas con código.
-    Además, debemos \href{http://tex.stackexchange.com/questions/24528}{extender}
-    los caracteres para mostrar los que no sean ASCII.
-  \end{alertblock}
+\subsection{Sin paquetes externos}
+
+\begin{frame}{Imágenes}
+  \begin{columns}
+    \column{.4\textwidth}
+      Incluimos imágenes con el comando \texttt{includegraphics}.
+
+      \espacio
+
+      Indicamos el tamaño con las opciones \texttt{width} y \texttt{height}.
+    \column{.6\textwidth}
+      \includegraphics[width=\textwidth]{./img/dress_color.png}
+      \\
+      \begin{center}
+        {\footnotesize \textit{De \href{http://xkcd.com/1492}{xkcd}: Dress colour}.}
+      \end{center}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Enlaces internos}
@@ -46,6 +50,23 @@
   \end{columns}
 \end{frame}
 
+\subsection{Con paquetes externos}
+
+\begin{frame}{Listings}
+  \hypertarget{ls}{}
+  Para incluir código en las diapositivas utilizamos el paquete
+  \href{https://www.ctan.org/tex-archive/macros/latex/contrib/listings}{\texttt{listings}}:
+  \espacio
+  \ejemplo{listing.tex}
+  \espacio
+  \pause
+  \begin{alertblock}{Ajustando \texttt{listings}}
+    Debemos incluir la opción \texttt{fragile} a las diapositivas con código.
+    Además, debemos \href{http://tex.stackexchange.com/questions/24528}{extender}
+    los caracteres para mostrar los que no sean ASCII.
+  \end{alertblock}
+\end{frame}
+
 \begin{frame}{Gráficos}
 \hypertarget{graphs}{}
   \begin{columns}[c]
@@ -69,23 +90,6 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Imágenes}
-  \begin{columns}
-    \column{.4\textwidth}
-      Incluimos imágenes con el comando \texttt{includegraphics}.
-
-      \espacio
-
-      Indicamos el tamaño con las opciones \texttt{width} y \texttt{height}.
-    \column{.6\textwidth}
-      \includegraphics[width=\textwidth]{./img/dress_color.png}
-      \\
-      \begin{center}
-        {\footnotesize \textit{De \href{http://xkcd.com/1492}{xkcd}: Dress colour}.}
-      \end{center}
-  \end{columns}
-\end{frame}
-
 \begin{frame}{Aún hay más...}
   \hypertarget{end}{}
   \transglitter<1>
@@ -95,7 +99,7 @@
   \espacio
   \begin{description}[<+->]
     \item[Transiciones] Con \texttt{transglitter} obtenemos este efecto.
-    \item[Multimedia] Incluir vídeos con reproductor interno (sólo en Linux) o externo.
+    \item[Multimedia] Incluir vídeos o sonido con reproductor interno o externo.
     \item[Temporización] Ajustamos el tiempo de una diapositiva con \texttt{transsetduration}.
     \item[Animaciones] No he conseguido que funcionen \frownie{}.
     \item[Cajas] Podemos definir cajas para meter texto.
