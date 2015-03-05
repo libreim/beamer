@@ -10,9 +10,43 @@
   Erratas, correcciones y aportaciones son bienvenidas.
 \end{frame}
 
+\begin{frame}{¿Qué es $\LaTeX$}
+  $\LaTeX$ es un lenguaje de marcado que permite crear documentos. Los elementos
+  básicos dentro del código de un documento son:
+  \espacio
+  \begin{overlayarea}{\textwidth}{5cm}
+      \only<1>{\begin{block}{Comandos}
+        El comando \texttt{com} se llama incluyendo \comando{com}.
+        \espacio
+        \begin{description}
+          \item[Argumentos] \comando{com}\texttt{\{arg1\}\{arg2\}}
+          \item[Opciones]   \comando{com}\texttt{[op]\{arg\}}
+        \end{description}
+        Algunos comandos sólo son válidos en ciertos entornos.
+      \end{block}}
+
+      \only<2>{\begin{block}{Entornos}
+        Un entorno es una sección del documento que permite el uso de ciertos comandos:
+        \begin{center}
+          \ejemplo{entorno.tex}
+        \end{center}
+      \end{block}}
+  \end{overlayarea}
+\end{frame}
+
+\begin{frame}{Estructura básica de un documento $\LaTeX$}
+  La estructura básica de un documento $\LaTeX$ consta de 2 partes:
+  \espacio
+  \begin{description}
+    \item[Clase de documento] Se indica con \comando{documentclass}\texttt{\{clase\}}.
+    \item[Paquetes y opciones] Se incluyen con \comando{usepackage}\texttt{\{paquete\}}.
+    \item[Documento] Se escribe dentro del entorno \texttt{document}.
+  \end{description}
+\end{frame}
+
 \begin{frame}{¿Qué es \beamer?}
   \href{https://www.ctan.org/pkg/beamer}{\beamer} es una clase de documento de $\LaTeX$
-  que genera diapositivas o transparencias con animaciones, gráficos, tablas...
+  que genera diapositivas o transparencias.
 
   Puede compilarse con casi cualquier compilador de $\LaTeX$ y personalizarse al detalle.
 
