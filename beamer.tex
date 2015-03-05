@@ -32,8 +32,8 @@
 \lstset{
 language=[LaTeX]TeX,
 basicstyle=\footnotesize,
-morekeywords={frametitle,framesubtitle, href, uselanguage, languagepath},
-otherkeywords={pause, column,usetheme, usecolortheme, useinnertheme},
+morekeywords={frametitle,framesubtitle,href,uselanguage,languagepath,subtitle,column},
+otherkeywords={pause,usetheme,usecolortheme,useinnertheme,titlepage,tableofcontents},
 breaklines=true,
 backgroundcolor=\color{backg},
 keywordstyle=\color{keywords},
@@ -108,15 +108,14 @@ Pablo Baeyens Fernández \\
 %% Presentación %%
 \begin{document}
 
-\frame{%
+\begin{frame}
 \titlepage
-}
+\end{frame}
 
-\frame{ % Índice
+\begin{frame}{Índice}
   \hypertarget{index}{}
-  \frametitle{Índice}
   \tableofcontents
-}
+\end{frame}
 
 \seccion{intro.tex}       % Introducción
 \seccion{estructura.tex}  % Estructura

@@ -42,6 +42,13 @@
     \item[Paquetes y opciones] Se incluyen con \comando{usepackage}\texttt{\{paquete\}}.
     \item[Documento] Se escribe dentro del entorno \texttt{document}.
   \end{description}
+  \pause
+  \espacio
+  \begin{exampleblock}{Plantillas}
+    Puedes utilizar como plantilla el código que genera este documento o usar
+    una de las plantillas en
+    \href{https://github.com/M42/plantillas/tree/master/presentacion}{M42/plantillas}.
+  \end{exampleblock}
 \end{frame}
 
 \begin{frame}{¿Qué es \beamer?}
@@ -77,15 +84,14 @@
   \end{block}
 \end{frame}
 
-\subsection{Primeros pasos}
+\subsection{Lo básico}
 
 \begin{frame}{Primeros pasos}
 
   Para empezar a usar \beamer, indicamos la clase del documento:
 
     \begin{center}
-      \Large \texttt
-      {\color{black}\textbackslash}{\color{keywords}documentclass}{\color{black}\{beamer\}}
+      \Large \comando{documentclass}\color{black}\{beamer\}
     \end{center}
 
   \pause
@@ -110,4 +116,8 @@
       \item \texttt{allowframebreaks}: Divide el contenido en diapositivas.
     \end{itemize}
   \end{block}
+\end{frame}
+
+\begin{frame}[plain]{Un ejemplo de documento}
+  \ejemplo{title.tex}
 \end{frame}
