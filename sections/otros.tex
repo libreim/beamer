@@ -3,6 +3,7 @@
 \subsection{Sin paquetes externos}
 
 \begin{frame}{Imágenes}
+  \hypertarget{im}{}
   \begin{columns}
     \column{.4\textwidth}
       Incluimos imágenes con el comando \texttt{includegraphics}.
@@ -26,22 +27,24 @@
     \column{.5\textwidth}
       \pause
       \begin{exampleblock}{Crear enlaces}
-        Pulsando \hyperlink{ls}{\color{links}aquí} vamos a la diapositiva anterior. Para
+        Pulsando \hyperlink{im}{\color{links}aquí} vamos a la diapositiva anterior. Para
         crear este enlace icluimos:
         \begin{enumerate}
-          \item \texttt{\textbackslash {\color{keywords}hypertarget}\{ls\}\{\}} \\
+          \item \texttt{\textbackslash {\color{keywords}hypertarget}\{im\}\{\}} \\
           en la diapositiva anterior.
-          \item \texttt{\textbackslash {\color{keywords}hyperlink}\{ls\}\{aquí\}} \\
+          \item \texttt{\textbackslash {\color{keywords}hyperlink}\{im\}\{aquí\}} \\
           en esta diapositiva.
         \end{enumerate}
 
-        Podemos apuntar a un cierto nivel de \textit{overlay}.
+        Podemos apuntar a un cierto nivel de \textit{overlay} indicándolo con la
+        sintaxis habitual.
       \end{exampleblock}
     \column{.5\textwidth}
       \pause
       \begin{exampleblock}{Botones}
-        Podemos crear 3 tipos de botones. Son útiles para añadir enlaces internos:
+        Podemos crear botones para añadir enlaces:
         \begin{enumerate}
+          \item \texttt{beamerbutton}       \\ \href{https://www.youtube.com/watch?v=dQw4w9WgXcQ}{\beamerbutton{RickRoll!}}
           \item \texttt{beamergotobutton}   \\ \hyperlink{graphs}{\beamergotobutton{Gráficos}}
           \item \texttt{beamerskipbutton}   \\ \hyperlink{end}{\beamerskipbutton{Final}}
           \item \texttt{beamerreturnbutton} \\ \hyperlink{index}{\beamerreturnbutton{Índice}}
@@ -53,7 +56,6 @@
 \subsection{Con paquetes externos}
 
 \begin{frame}{Listings}
-  \hypertarget{ls}{}
   Para incluir código en las diapositivas utilizamos el paquete
   \href{https://www.ctan.org/tex-archive/macros/latex/contrib/listings}{\texttt{listings}}:
   \espacio
