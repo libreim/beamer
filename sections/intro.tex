@@ -8,9 +8,17 @@
   \huge \href{http://github.com/pbaeyens/beamer}{github.com/pbaeyens/beamer}
 \end{center}
   Erratas, correcciones y aportaciones son bienvenidas.
+  \espacio
+  \begin{columns}[c]
+    \column{.5\textwidth}
+      \hyperlink{beamer}{\beamergotobutton{Ya sé $\LaTeX$ \smiley{}}}
+    \column{.5\textwidth}
+      \hyperlink{latex}{\beamergotobutton{No sé $\LaTeX$ \frownie{}}}
+  \end{columns}
 \end{frame}
 
-\begin{frame}{¿Qué es $\LaTeX$}
+\begin{frame}{¿Qué es $\LaTeX$?}
+  \hypertarget<1>{latex}{}
   $\LaTeX$ es un lenguaje de marcado que permite crear documentos. Los elementos
   básicos dentro del código de un documento son:
   \espacio
@@ -52,19 +60,21 @@
 \end{frame}
 
 \begin{frame}{¿Qué es \beamer?}
+  \hypertarget<1>{beamer}{}
   \href{https://www.ctan.org/pkg/beamer}{\beamer} es una clase de documento de $\LaTeX$
   que genera diapositivas o transparencias.
 
   Puede compilarse con casi cualquier compilador de $\LaTeX$ y personalizarse al detalle.
 
   \pause
+  \espacio
 
-    \begin{block}{\texttt{pandoc}}
-      \texttt{pandoc} no sirve \frownie{}. Podemos generar presentaciones
-       con \beamer pero tiene
-    \href{http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc}{%
-    una sintaxis propia}.
-    \end{block}
+  \begin{block}{\texttt{pandoc}}
+    \texttt{pandoc} no sirve \frownie{}. Podemos generar presentaciones
+     con \beamer pero tiene
+  \href{http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc}{%
+  una sintaxis propia}.
+  \end{block}
 \end{frame}
 
 \begin{frame}{Instalación}
@@ -76,7 +86,8 @@
     \item \texttt{xcolor}
   \end{itemize}
 
-    \pause
+  \pause
+  \espacio
 
   \begin{block}{Debian/Ubuntu y derivados}
     En Debian y derivados podemos instalar \texttt{latex-beamer}. También podemos
@@ -105,7 +116,7 @@
   Los documentos de \beamer se dividen en diapositivas. Las creamos utilizando
   el entorno \texttt{frame}:
 
-  \ejemplo{ejemplo1.tex}
+  \ejemplo{frame.tex}
 
   \pause
   \begin{block}{Tipos de diapositivas}
@@ -118,6 +129,6 @@
   \end{block}
 \end{frame}
 
-\begin{frame}[plain]{Un ejemplo de documento}
-  \ejemplo{title.tex}
+\begin{frame}[plain]
+  \ejemplo{presentacion.tex}
 \end{frame}
