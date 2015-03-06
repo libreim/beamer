@@ -1,5 +1,5 @@
 # beamer
-Guía de uso de `beamer` en `beamer`.
+Guía de uso de `beamer` en `beamer`. Puedes descargar la última versión de la guía [**aquí**](https://github.com/pbaeyens/beamer/blob/master/beamer.pdf?raw=true).
 
 # Índice
 
