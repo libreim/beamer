@@ -5,11 +5,15 @@
 %% Paquetes y configuración %
 
 % Beamer
-\documentclass[compress, aspectratio=43]{beamer}
+\PassOptionsToPackage{unicode}{hyperref}  % Evita errores con caracteres no ASCII
+\PassOptionsToPackage{naturalnames}{hyperref} % tex.stackexchange.com/questions/10555
+\documentclass[compress]{beamer}
 
 % Idioma
 \usepackage[spanish]{babel} % Traducciones
 \usepackage[utf8]{inputenc} % Uso de caracteres UTF-8
+\usepackage{lmodern}        % Fuentes de tamaño arbitrario
+\usepackage[T1]{fontenc}    % Permite copiar y evita errores
 \uselanguage{Spanish}       % Traducciones beamer
 \languagepath{Spanish}      % (tex.stackexchange.com/questions/168208)
 
@@ -69,8 +73,9 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
 \newcommand{\seccion}[1]{\input{./sections/#1}}           % Incluir secciones
 \newcommand{\espacio}{\vspace*{\baselineskip}}            % Añade espacios
 \newcommand{\beamer}{\texttt{beamer} }                    % Estilo único para beamer
-\newcommand{\enlace}[3]{\textbf{\href{#1}{#2}} - {\small #3}}  % Estílo único para refs
+\newcommand{\enlace}[3]{\href{#1}{\textbf{#2}} - {\small #3}}  % Estílo único para refs
 \newcommand{\comando}[1]{{\color{black}\textbackslash}{\color{keywords}#1}}
+
 %% Temas %%
 % Tema y tema de color
   \usetheme{Dresden}
@@ -85,23 +90,23 @@ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1
   \setbeamercolor{block title example}{fg=green!70!black,bg=title!92!green}
   \setbeamercolor{block body example}{fg=black,bg=backg}
 % Enlaces (tex.stackexchange.com/questions/13423)
-  \hypersetup{colorlinks,linkcolor=,urlcolor=links}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
 % Quita enlaces de navegación (stackoverflow.com/questions/3017030)
-  \setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{navigation symbols}{}
 % Quita barra inferior (stackoverflow.com/questions/1435837)
-  \setbeamertemplate{footline}{}
-% Tamaño de letra arbitrario
-  \usepackage{lmodern}
-% Cajas
-  \usepackage{fancybox}
-
+\setbeamertemplate{footline}{}
+% Evita warnings boxes
+\hfuzz=20pt
+\vfuzz=20pt
+% Evita wranings itemize
+\renewcommand\textbullet{\ensuremath{\bullet}}
 
 %% Título y otros %%
 \title{Cómo usar \beamer}                                               % Título
 \subtitle{Una guía escrita en \beamer}                                  % Subtítulo
 \author[Pablo Baeyens]{ %
-Pablo Baeyens Fernández \\
-\href{mailto:pbaeyens31+github@gmail.com}{pbaeyens31+github@gmail.com}} % Autor y e-mail
+Pablo Baeyens Fernández \texorpdfstring{\\
+\href{mailto:pbaeyens31+github@gmail.com}{pbaeyens31+github@gmail.com}}{}} % Autor y e-mail
 \date{DGIIM}                                                            % Fecha
 
 

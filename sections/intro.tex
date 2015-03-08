@@ -11,15 +11,15 @@
   \espacio
   \begin{columns}[c]
     \column{.5\textwidth}
-      \hyperlink{beamer}{\beamergotobutton{Ya sé $\LaTeX$ \smiley{}}}
+      \hyperlink{beamer}{\beamergotobutton{Ya sé \LaTeX \smiley{}}}
     \column{.5\textwidth}
-      \hyperlink{latex}{\beamergotobutton{No sé $\LaTeX$ \frownie{}}}
+      \hyperlink{latex}{\beamergotobutton{No sé \LaTeX \frownie{}}}
   \end{columns}
 \end{frame}
 
-\begin{frame}{¿Qué es $\LaTeX$?}
+\begin{frame}{¿Qué es \LaTeX?}
   \hypertarget<1>{latex}{}
-  $\LaTeX$ es un lenguaje de marcado que permite crear documentos. Los elementos
+  \LaTeX es un lenguaje de marcado que permite crear documentos. Los elementos
   básicos dentro del código de un documento son:
   \espacio
   \begin{overlayarea}{\textwidth}{5cm}
@@ -42,8 +42,8 @@
   \end{overlayarea}
 \end{frame}
 
-\begin{frame}{Estructura básica de un documento $\LaTeX$}
-  La estructura básica de un documento $\LaTeX$ consta de 2 partes:
+\begin{frame}{Estructura básica de un documento \LaTeX}
+  La estructura básica de un documento \LaTeX consta de 2 partes:
   \espacio
   \begin{description}
     \item[Clase de documento] Se indica con \comando{documentclass}\texttt{\{clase\}}.
@@ -61,19 +61,19 @@
 
 \begin{frame}{¿Qué es \beamer?}
   \hypertarget<1>{beamer}{}
-  \href{https://www.ctan.org/pkg/beamer}{\beamer} es una clase de documento de $\LaTeX$
+  \href{https://www.ctan.org/pkg/beamer}{\beamer} es una clase de documento de \LaTeX
   que genera diapositivas o transparencias.
 
-  Puede compilarse con casi cualquier compilador de $\LaTeX$ y personalizarse al detalle.
+  Puede compilarse con casi cualquier compilador de \LaTeX y personalizarse al detalle.
 
   \pause
   \espacio
 
   \begin{block}{\texttt{pandoc}}
-    \texttt{pandoc} no sirve \frownie{}. Podemos generar presentaciones
-     con \beamer pero tiene
-  \href{http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc}{%
-  una sintaxis propia}.
+    \texttt{pandoc} no sirve \frownie{}. Podemos generar presentaciones con
+     \href{http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc}{
+     RMarkdown} y el aspecto será idéntico a \beamer pero no a partir de un archivo
+     \texttt{.tex}.
   \end{block}
 \end{frame}
 
